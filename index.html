@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+
+<body>
+    <header style="text-align: center; margin-top: 32px;" class="container">
+        <h1>Paste Burn</h1>
+        <p>Paste and store text online. Gets burnt after the first view or a set period of time.</p>
+    </header>
+    <main class="container">
+        <form hx-post="/">
+            <textarea name="text" placeholder="Your text ..." oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>
+            <small id="txt-feedback">0 / 500</small>
+            <div class="grid">
+                <select name="expire" aria-label="Expire after" required>
+                    <option selected disabled value="">
+                        Expire after
+                    </option>
+                    <option>5 minutes</option>
+                    <option>30 minutes</option>
+                    <option selected>1 hour</option>
+                    <option>5 hours</option>
+                </select>
+                <input type="submit" value="Send" />
+            </div>
+        
+        </form>
+    </main>
+</body>
+
+</html>
